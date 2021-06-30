@@ -3,13 +3,6 @@
 {
   services.fwupd.enable = true;
   services.openssh.enable = true;
-  services.openvpn.servers = {
-    moccu = {
-      autoStart = false;
-      config = '' config /home/max/.config/openvpn/moccu/config.ovpn '';
-      updateResolvConf = true;
-    };
-  };
 
   systemd.services.backlight-permissions = {
     description = "Fix the backlight permissions";
