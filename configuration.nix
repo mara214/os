@@ -13,6 +13,10 @@
       ./cfg/system.nix
       ./cfg/user.nix
       ./cfg/gfx/intel.nix
+
+      ./env/home.nix
+      ./env/bielefeld.nix
+      ./env/travel.nix
     ];
 
   # Determines NixOS release.

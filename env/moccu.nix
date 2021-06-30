@@ -1,6 +1,17 @@
 { config, lib, pkgs, ... }:
 
 {
+  networking.wireless.networks."MOCCU" = {
+    priority = 20;
+    auth = ''
+       key_mgmt=WPA-EAP
+       eap=TTLS
+       identity="maximilians"
+       password=hash:49d1225fe88e8ad6a4004c323bb30e0b
+       ca_cert="/home/max/.config/moccu/ca.cert"
+    '';
+  };
+
   services.openvpn.servers = {
     moccu = {
       autoStart = false;
