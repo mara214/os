@@ -1,11 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  users.users.max = {
-    isNormalUser = true;
-    description = "Maximilian Schulke";
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "docker" "audio" "video" ];
+  users.users = {
+    max = {
+      description = "Maximilian Schulke";
+      extraGroups = [ "wheel" "networkmanager" "docker" "audio" "video" ];
+      isNormalUser = true;
+      shell = pkgs.zsh;
+    };
+    root.shell = pkgs.zsh;
   };
-  users.users.root.shell = pkgs.zsh;
 }

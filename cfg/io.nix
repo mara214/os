@@ -1,10 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  services.printing.enable = true;
-  services.blueman.enable = true;
-  sound.enable = true;
   nixpkgs.config.pulseaudio = true;
+
+  sound.enable = true;
   hardware.pulseaudio = {
     enable = true;
     daemon = {
@@ -19,4 +18,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.hsphfpd.enable = true;
   hardware.bluetooth.package = pkgs.bluezFull;
+
+  services.printing.enable = true;
+  services.blueman.enable = true;
 }
