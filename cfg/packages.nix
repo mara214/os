@@ -1,13 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, fetchFromGitHub, ... }:
 
 let
   mozilla_overlay = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
-  rust = (pkgs.rustChannelOf { date = "2021-06-14"; }).rust.override {
+  rust = (pkgs.rustChannelOf { date = "2021-07-01"; }).rust.override {
     extensions = [
       "rust-src"
       "rls-preview"
-      "clippy-preview"
       "rustfmt-preview"
+      "rust-analyzer-preview"
+      "clippy-preview"
     ];
   };
 in {
@@ -18,8 +19,8 @@ in {
 
     signal-desktop = super.signal-desktop.overrideAttrs (_: {
       src = builtins.fetchurl {
-        url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_5.4.0_amd64.deb";
-        sha256 = "046xy033ars70ay5ryj39i5053py00xj92ajdg212pamq415z1zb";
+        url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_5.7.1_amd64.deb";
+        sha256 = "1hjykjqf3n20aab9g3bwk5w8x8v61320xv6z4iqrwwdzfkb3ly20";
       };
     });
 
@@ -28,6 +29,20 @@ in {
         url = "https://github.com/schulke-214/slock/archive/refs/tags/1.4.2.tar.gz";
         sha256 = "10r3yiz42b93avr06yd97gagqpafj9gqpl9f2n55z3hqa6jmhfvp";
       };
+    });
+
+    neovim-unwrapped = super.neovim-unwrapped.overrideAttrs (_: {
+      version = "0.5.0";
+      src = pkgs.fetchFromGitHub {
+        owner = "neovim";
+        repo = "neovim";
+        rev = "v0.5.0";
+        sha256 = "0lgbf90sbachdag1zm9pmnlbn35964l3khs27qy4462qzpqyi9fi";
+      };
+
+      buildInputs = super.neovim-unwrapped.buildInputs ++ [ pkgs.tree-sitter ];
+
+      cmakeFlags = super.neovim-unwrapped.cmakeFlags ++ [ "-DUSE_BUNDLED=OFF" ];
     });
   })];
 
@@ -44,7 +59,6 @@ in {
     killall
     manpages
     nix
-    openssl
     ofono
     playerctl
     usbutils
@@ -83,6 +97,7 @@ in {
 
     # network packages
     openconnect
+    openssl
 
     # ui packages
     feh
@@ -109,7 +124,7 @@ in {
     slack
     signal-desktop
     thunderbird
-    (texlive.combine { inherit (texlive) scheme-medium latexindent latexmk listing hyphenat textpos; }) 
+    (texlive.combine { inherit (texlive) fontaxes scheme-medium latexindent latexmk listing hyphenat textpos plex; }) 
     plantuml
     vault
 
