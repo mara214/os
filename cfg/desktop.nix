@@ -5,6 +5,9 @@
     enable = true;
     layout = "de";
 
+    autoRepeatDelay = 300;
+    autoRepeatInterval = 25;
+
     displayManager.gdm.enable = true;
     displayManager.defaultSession = "none+xmonad";
 
