@@ -1,5 +1,6 @@
 { config, ... }:
 
 {
-    services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.videoDrivers = [ "intel" ];
+  system.nixos.tags = [ "internal" ];
 }

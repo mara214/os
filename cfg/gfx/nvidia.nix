@@ -1,11 +1,18 @@
 { config, ... }:
 
 {
-    services.xserver.videoDrivers = [ "nvidia" ];
-    hardware.nvidia.prime = {
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:7:0:0";
-      sync.enable = true;
-      sync.allowExternalGpu = true;
-    };
+  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.dpi = 141;
+
+  hardware.video.hidpi.enable = true;
+  hardware.nvidia.prime = {
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:7:0:0";
+    sync.enable = true;
+    sync.allowExternalGpu = true;
+  };
+
+  environment.variables.GDK_DPI_SCALE = "0.5";
+
+  system.nixos.tags = [ "egpu" ];
 }
