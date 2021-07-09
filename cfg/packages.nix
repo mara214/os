@@ -59,7 +59,6 @@ in {
     killall
     manpages
     nix
-    ofono
     playerctl
     usbutils
     wpa_supplicant_gui
