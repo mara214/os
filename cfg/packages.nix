@@ -4,6 +4,7 @@ let
   mozilla_overlay = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
   rust = (pkgs.rustChannelOf { date = "2021-07-01"; }).rust.override {
     extensions = [
+      "rust-std"
       "rust-src"
       "rls-preview"
       "rustfmt-preview"
