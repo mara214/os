@@ -15,6 +15,7 @@
       ./cfg/gfx/intel.nix
 
       ./env/home.nix
+      ./env/hum-systems.nix
       ./env/bielefeld.nix
       ./env/travel.nix
     ];
