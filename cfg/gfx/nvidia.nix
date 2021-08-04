@@ -12,6 +12,7 @@
     sync.allowExternalGpu = true;
   };
 
+  environment.variables.QT_FONT_DPI = "141";
   environment.variables.GDK_DPI_SCALE = "0.5";
 
   system.nixos.tags = [ "egpu" ];
