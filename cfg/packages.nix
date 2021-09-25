@@ -20,15 +20,15 @@ in {
 
     signal-desktop = super.signal-desktop.overrideAttrs (_: {
       src = builtins.fetchurl {
-        url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_5.7.1_amd64.deb";
-        sha256 = "1hjykjqf3n20aab9g3bwk5w8x8v61320xv6z4iqrwwdzfkb3ly20";
+        url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_5.15.0_amd64.deb";
+        sha256 = "0cbz2l31cg87n6qlbvwdjy92q9qgmmkrsvaj37cc34ajh7asd833";
       };
     });
 
     slock = super.slock.overrideAttrs (_: {
       src = builtins.fetchTarball {
-        url = "https://github.com/schulke-214/slock/archive/refs/tags/1.4.2.tar.gz";
-        sha256 = "10r3yiz42b93avr06yd97gagqpafj9gqpl9f2n55z3hqa6jmhfvp";
+        url = "https://github.com/schulke-214/slock/archive/refs/tags/1.4.3.tar.gz";
+        sha256 = "0s12ppg3wlcs6m1smxxh376hw97gc4x0s4v82b0lxkx3qganifcq";
       };
     });
 
@@ -134,6 +134,7 @@ in {
     go
     gcc
     ghc
+    idea.clion
     idea.idea-ultimate
     idea.datagrip
     neovim
