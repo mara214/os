@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   networking.wireless.networks."Hum-Systems 2.0" = {
@@ -11,4 +11,6 @@
     config = '' config /etc/nixos/secrets/hum-systems/openvpn/config.ovpn '';
     updateResolvConf = true;
   };
+
+  environment.systemPackages = with pkgs; [ google-cloud-sdk ];
 }
