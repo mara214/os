@@ -41,4 +41,6 @@
     ubuntu_font_family
     lmodern
   ];
+
+  environment.variables.WINIT_X11_SCALE_FACTOR = "1.5";
 }
