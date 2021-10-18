@@ -3,6 +3,7 @@
 {
   services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.dpi = 141;
+  services.logind.lidSwitch = "ignore";
 
   hardware.video.hidpi.enable = true;
   hardware.nvidia.prime = {
