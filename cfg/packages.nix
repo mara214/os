@@ -27,8 +27,8 @@ in {
 
     slock = super.slock.overrideAttrs (_: {
       src = builtins.fetchTarball {
-        url = "https://github.com/schulke-214/slock/archive/refs/tags/1.4.3.tar.gz";
-        sha256 = "0s12ppg3wlcs6m1smxxh376hw97gc4x0s4v82b0lxkx3qganifcq";
+        url = "https://github.com/schulke-214/slock/archive/refs/tags/1.4.5.tar.gz";
+        sha256 = "0ipj550ahpj944ybmhghjapdksk8yglsd12acdp28nhp7ldw895h";
       };
     });
 
@@ -120,9 +120,10 @@ in {
     libreoffice
     minecraft
     mypaint
-    spotify
-    slack
     signal-desktop
+    slack
+    spotify
+    surf
     thunderbird
     (texlive.combine { inherit (texlive) fontaxes scheme-medium latexindent latexmk listing hyphenat textpos plex; }) 
     plantuml
