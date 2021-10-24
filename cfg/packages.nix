@@ -126,7 +126,19 @@ in {
     spotify
     surf
     thunderbird
-    (texlive.combine { inherit (texlive) fontaxes scheme-medium latexindent latexmk listing hyphenat textpos plex; }) 
+    (texlive.combine {
+      inherit (texlive)
+      IEEEtran
+      fontaxes
+      hyphenat
+      latexindent
+      latexmk
+      lipsum
+      listing
+      plex
+      scheme-medium
+      textpos;
+    }) 
     plantuml
     vault
 
