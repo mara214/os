@@ -103,6 +103,7 @@ in {
     feh
     gnome3.nautilus
     pavucontrol
+    system-config-printer
     trayer
     volumeicon
     xmobar
