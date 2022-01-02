@@ -21,9 +21,4 @@
 
   services.printing.enable = true;
   services.blueman.enable = true;
-
-  # TODO: this does not work yet, should retrigger xorg init when keyboard goes to sleep
-  services.udev.extraRules = ''
-    ACTION=="bind", ATTRS{idVendor}=="046D", ATTRS{idProduct}=="B35B", RUN+="${xprofile}"
-  '';
 }
