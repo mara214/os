@@ -34,5 +34,5 @@ in {
   # Determines NixOS release.
   # Don't change this before reading the docs.
   # https://nixos.org/nixos/options.html
-  system.stateVersion = "21.05";
+  system.stateVersion = "21.11";
 }
