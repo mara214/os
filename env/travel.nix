@@ -1,8 +1,8 @@
 { config, ... }:
 
 {
-  networking.wireless.networks."iPhone von Maximilian" = {
+  networking.wireless.networks."iPhone von Mara" = {
     priority = 5;
-    pskRaw = "7df600e96ebcb2b40256ffa5fda984a2d0adfbbfec90587b7333c1e84db122f0";
+    pskRaw = "cd136d9abb9367a66d47cff4add0cf4138e10ebc924634534c821c76e1e8712d";
   };
 }

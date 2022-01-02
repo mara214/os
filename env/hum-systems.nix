@@ -12,5 +12,6 @@
     updateResolvConf = true;
   };
 
+  networking.firewall.allowedTCPPorts = [ 9988 ];
   environment.systemPackages = with pkgs; [ google-cloud-sdk ];
 }
