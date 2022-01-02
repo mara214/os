@@ -2,8 +2,9 @@
 
 {
   users.users = {
-    max = {
-      description = "Maximilian Schulke";
+    mara = {
+      uid = 1000;
+      description = "Mara Schulke";
       extraGroups = [ "wheel" "networkmanager" "docker" "audio" "video" "lp" ];
       isNormalUser = true;
       shell = pkgs.zsh;
