@@ -2,7 +2,7 @@
 
 let
   mozilla_overlay = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
-  rust = (pkgs.rustChannelOf { date = "2021-07-01"; }).rust.override {
+  rust = (pkgs.rustChannelOf { date = "2022-01-01"; }).rust.override {
     extensions = [
       "rust-std"
       "rust-src"
@@ -20,8 +20,8 @@ in {
 
     signal-desktop = super.signal-desktop.overrideAttrs (_: {
       src = builtins.fetchurl {
-        url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_5.15.0_amd64.deb";
-        sha256 = "0cbz2l31cg87n6qlbvwdjy92q9qgmmkrsvaj37cc34ajh7asd833";
+        url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_5.25.0_amd64.deb";
+        sha256 = "0ql9rzxrisqms3plcrmf3fjinpxba10asmpsxvhn0zlfajy47d0a";
       };
     });
 
@@ -29,6 +29,14 @@ in {
       src = builtins.fetchTarball {
         url = "https://github.com/schulke-214/slock/archive/refs/tags/1.4.5.tar.gz";
         sha256 = "0ipj550ahpj944ybmhghjapdksk8yglsd12acdp28nhp7ldw895h";
+      };
+    });
+
+    plantuml = super.plantuml.overrideAttrs (_: {
+      version = "1.2021.15";
+      src = builtins.fetchurl {
+        url = "https://github.com/plantuml/plantuml/releases/download/v1.2021.15/plantuml-1.2021.15.jar";
+        sha256 = "0s00s2ah0grqc998rn59zb6im7wgmxj2ngksd438k1hbpq1js6f7";
       };
     });
 
@@ -89,6 +97,7 @@ in {
     peek
     pstree
     ranger
+    rclone
     ripgrep
     rofi
     scrot
@@ -111,13 +120,15 @@ in {
     # user packages
     alacritty 
     anki
+    biber
     chromium
     discord
     dropbox-cli
     enpass
     evince
     exercism
-    latest.firefox-beta-bin
+    # latest.firefox-beta-bin
+    firefox
     libreoffice
     minecraft
     mypaint
@@ -128,6 +139,10 @@ in {
     thunderbird
     (texlive.combine {
       inherit (texlive)
+      apa
+      biblatex biblatex-apa
+      csquotes
+      glossaries
       IEEEtran
       fontaxes
       hyphenat
@@ -136,7 +151,7 @@ in {
       lipsum
       listing
       plex
-      scheme-medium
+      scheme-full
       textpos;
     }) 
     plantuml
@@ -155,6 +170,7 @@ in {
     nodejs
     python39
     rust
+    rustup
     stack
     tig
     vscode
