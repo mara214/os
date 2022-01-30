@@ -5,7 +5,7 @@
     mara = {
       uid = 1000;
       description = "Mara Schulke";
-      extraGroups = [ "wheel" "networkmanager" "docker" "audio" "video" "lp" ];
+      extraGroups = [ "wheel" "networkmanager" "docker" "audio" "video" "lp" "libvirtd" ];
       isNormalUser = true;
       shell = pkgs.zsh;
     };
