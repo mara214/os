@@ -1,8 +1,8 @@
 { config, pkgs, fetchFromGitHub, ... }:
 
 let
-  mozilla_overlay = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
-  rust = (pkgs.rustChannelOf { date = "2022-01-01"; }).rust.override {
+  mozilla = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
+  rust = (pkgs.rustChannelOf { date = "2021-07-01"; }).rust.override {
     extensions = [
       "rust-std"
       "rust-src"
@@ -13,7 +13,7 @@ let
     ];
   };
 in {
-  nixpkgs.overlays = [mozilla_overlay (self: super: {
+  nixpkgs.overlays = [mozilla (self: super: {
     discord = super.discord.overrideAttrs (_: {
       src = builtins.fetchTarball "https://discordapp.com/api/download?platform=linux&format=tar.gz";
     });
@@ -41,12 +41,12 @@ in {
     });
 
     neovim-unwrapped = super.neovim-unwrapped.overrideAttrs (_: {
-      version = "0.5.0";
+      version = "0.6.1";
       src = pkgs.fetchFromGitHub {
         owner = "neovim";
         repo = "neovim";
-        rev = "v0.5.0";
-        sha256 = "0lgbf90sbachdag1zm9pmnlbn35964l3khs27qy4462qzpqyi9fi";
+        rev = "v0.6.1";
+        sha256 = "0l738d23hwzbjl2kw7aiycrglmywqpdcnlwlvvmr78nniv9rcw6i";
       };
 
       buildInputs = super.neovim-unwrapped.buildInputs ++ [ pkgs.tree-sitter ];
@@ -160,6 +160,7 @@ in {
     # coding packages
     docker
     docker_compose
+    flutter
     go
     gcc
     ghc
