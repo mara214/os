@@ -8,7 +8,7 @@
     enable = true;
     mailto = "mara@schulke.xyz";
     systemCronJobs = [
-      "0 12 * * *  max  DROPBOX_CLI='/home/max/.local/bin/dropbox-sh' /home/max/.zsh/utils/backup now"
+      "0 12 * * *  max  DROPBOX_CLI='/home/mara/.local/bin/dropbox-sh' /home/mara/.zsh/utils/backup now"
     ];
   };
 
