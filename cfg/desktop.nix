@@ -11,13 +11,13 @@
     displayManager.gdm.enable = true;
     displayManager.defaultSession = "none+xmonad";
 
-    #windowManager.xmonad.enable = true;
-    #windowManager.xmonad.enableContribAndExtras = true;
-    #windowManager.xmonad.extraPackages = hpkgs: [
-      #hpkgs.xmonad
-      #hpkgs.xmonad-contrib
-      #hpkgs.xmonad-extras
-    #];
+    windowManager.xmonad.enable = true;
+    windowManager.xmonad.enableContribAndExtras = true;
+    windowManager.xmonad.extraPackages = hpkgs: [
+      hpkgs.xmonad
+      hpkgs.xmonad-contrib
+      hpkgs.xmonad-extras
+    ];
 
     windowManager.dwm.enable = true;
 
