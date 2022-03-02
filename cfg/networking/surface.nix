@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  networking.hostName = "estradiol";
+  networking.hostName = "surface";
   networking.wireless = {
     enable = true;
     userControlled.enable = true;
