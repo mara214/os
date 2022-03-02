@@ -23,14 +23,4 @@
     authPassFile = "/etc/nixos/secrets/mail/pass";
     useTLS = true;
   };
-
-  systemd.services.backlight-permissions = {
-    description = "Fix the backlight permissions";
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "/run/current-system/sw/bin/chmod 666 /sys/class/backlight/intel_backlight/brightness";
-      User = "root";
-    };
-    wantedBy = [ "default.target" ];
-  };
 }
