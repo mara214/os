@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 
 let
+in {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware/blackbox.nix
 
     ./cfg/desktop.nix
     ./cfg/io.nix
-    ./cfg/networking.nix
     ./cfg/packages.nix
     ./cfg/services.nix
     ./cfg/system.nix
@@ -17,22 +17,10 @@ let
     ./env/hum-systems.nix
     ./env/travel.nix
     ./env/university.nix
+
+    ./cfg/gfx/amd.nix
+    ./cfg/networking/blackbox.nix
   ];
-in {
-  imports = imports ++ [ ./cfg/gfx/intel.nix ];
 
-  specialisation = {
-    egpu = {
-      inheritParentConfig = false;
-      configuration =
-        {
-          imports = imports ++ [ ./cfg/gfx/nvidia.nix ];
-        };
-    };
-  };
-
-  # Determines NixOS release.
-  # Don't change this before reading the docs.
-  # https://nixos.org/nixos/options.html
   system.stateVersion = "21.11";
 }
