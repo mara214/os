@@ -21,13 +21,6 @@
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "intel_idle.max_cstate=1"
-      "acpi_backlight=vendor"
-      "acpi_osi='!Windows 2013'"
-      "acpi_osi=Linux"
-      "nogpumanager" # do i need this?
-    ];
   };
 
   time.timeZone = "Europe/Berlin";
@@ -40,7 +33,7 @@
   hardware.opengl = {
     enable = true;
     driSupport = true;
-    extraPackages = [ pkgs.vaapiIntel ];
+    extraPackages = [];
   };
 
   virtualisation.docker.enable = true;

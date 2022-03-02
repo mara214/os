@@ -30,4 +30,11 @@
     ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+
+  boot.kernelParams = [
+    "acpi_backlight=vendor"
+    "acpi_osi=Linux"
+    "nogpumanager" # do i need this?
+  ];
 }
