@@ -167,6 +167,7 @@ in {
     idea.clion
     idea.idea-ultimate
     idea.datagrip
+    kubectl
     neovim
     nodejs
     python39
