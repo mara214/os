@@ -14,9 +14,9 @@
 
   networking.firewall = {
     allowedTCPPorts = [
-      53 139 443 445 515 631 9100 9001 9102	# printers
+      53 139 443 445 515 631 9100 9001 9102 # printers
       1701                                  # weylus
-      3000 5000 8000                        # http server
+      80 443 3000 5000 8000                 # http server
     ];
     allowedUDPPorts = [
       53 137 161 5353                       # printers
