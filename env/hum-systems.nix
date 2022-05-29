@@ -14,4 +14,8 @@
 
   networking.firewall.allowedTCPPorts = [ 9988 ];
   environment.systemPackages = with pkgs; [ google-cloud-sdk ];
+  environment.sessionVariables = with pkgs; rec {
+    OPENSSL_DIR = "${pkgs.openssl.dev}";
+    OPENSSL_LIB_DIR = "${pkgs.openssl.out}/lib";
+  };
 }

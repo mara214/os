@@ -2,7 +2,7 @@
 
 let
   mozilla = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
-  rust = (pkgs.rustChannelOf { date = "2021-07-01"; }).rust.override {
+  rust = (pkgs.rustChannelOf { date = "2022-04-10"; }).rust.override {
     extensions = [
       "rust-std"
       "rust-src"
@@ -27,7 +27,7 @@ in {
 
     slock = super.slock.overrideAttrs (_: {
       src = builtins.fetchTarball {
-        url = "https://github.com/schulke-214/slock/archive/refs/tags/1.4.6.tar.gz";
+        url = "https://github.com/mara214/slock/archive/refs/tags/1.4.6.tar.gz";
         sha256 = "0lg5s1l0fzz44liyh9kfnhyka3d9zn8b88xx7naamn8g8rr3s4s1";
       };
     });
@@ -161,15 +161,18 @@ in {
     docker
     docker_compose
     flutter
-    go
     gcc
     ghc
+    go
     idea.clion
-    idea.idea-ultimate
     idea.datagrip
+    idea.idea-ultimate
     kubectl
+    libsodium
     neovim
     nodejs
+    openssl
+    pkgconfig
     python39
     rust
     rustup
