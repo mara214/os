@@ -1,10 +1,7 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
-let
-in {
+{
   imports = [
-    ./hardware/blackbox.nix
-
     ./cfg/desktop.nix
     ./cfg/io.nix
     ./cfg/packages.nix
@@ -18,8 +15,7 @@ in {
     ./env/travel.nix
     ./env/university.nix
 
-    ./cfg/gfx/amd.nix
-    ./cfg/networking/blackbox.nix
+    ./system.nix
   ];
 
   system.stateVersion = "21.11";
