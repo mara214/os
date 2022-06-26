@@ -15,6 +15,7 @@
   networking.firewall.allowedTCPPorts = [ 9988 ];
   environment.systemPackages = with pkgs; [ google-cloud-sdk ];
   environment.sessionVariables = with pkgs; rec {
+    SODIUM_USE_PKG_CONFIG = "1";
     OPENSSL_DIR = "${pkgs.openssl.dev}";
     OPENSSL_LIB_DIR = "${pkgs.openssl.out}/lib";
   };
