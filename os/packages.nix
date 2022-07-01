@@ -20,8 +20,8 @@ in {
 
     signal-desktop = super.signal-desktop.overrideAttrs (_: {
       src = builtins.fetchurl {
-        url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_5.25.0_amd64.deb";
-        sha256 = "0ql9rzxrisqms3plcrmf3fjinpxba10asmpsxvhn0zlfajy47d0a";
+        url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_5.39.0_amd64.deb";
+        sha256 = "01wjyhdvi1sibmij1pfcw3hx3l1512b57xpgcv3zkglrqan6hbhg";
       };
     });
 
