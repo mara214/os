@@ -66,7 +66,7 @@ in {
     git
     htop
     killall
-    manpages
+    man-pages
     nix
     playerctl
     usbutils
@@ -143,7 +143,6 @@ in {
       biblatex biblatex-apa
       csquotes
       glossaries
-      IEEEtran
       fontaxes
       hyphenat
       latexindent
@@ -159,14 +158,14 @@ in {
 
     # coding packages
     docker
-    docker_compose
+    docker-compose
     flutter
     gcc
     ghc
     go
-    idea.clion
-    idea.datagrip
-    idea.idea-ultimate
+    jetbrains.clion
+    jetbrains.datagrip
+    jetbrains.idea-ultimate
     kubectl
     libsodium
     neovim
@@ -178,11 +177,11 @@ in {
     rustup
     stack
     tig
+    terraform-full
     vscode
     watchman
   ];
 
-  programs.steam.enable = true;
   programs.zsh.enable = true;
   programs.gnupg.agent = {
     enable = true;
