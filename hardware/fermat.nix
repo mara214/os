@@ -44,7 +44,7 @@
   boot.kernelParams = [
     "intel_idle.max_cstate=1"
     "acpi_backlight=vendor"
-    "acpi_osi='!Windows 2013'"
+    "acpi_osi=\"!Windows 2013\""
     "acpi_osi=Linux"
     "nogpumanager" # do i need this?
   ];
