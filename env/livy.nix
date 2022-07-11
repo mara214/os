@@ -12,7 +12,7 @@
     updateResolvConf = true;
   };
 
-  networking.firewall.allowedTCPPorts = [ 9988 ];
+  networking.firewall.allowedTCPPorts = [ ];
   environment.systemPackages = with pkgs; [ google-cloud-sdk ];
   environment.sessionVariables = with pkgs; rec {
     SODIUM_USE_PKG_CONFIG = "1";
