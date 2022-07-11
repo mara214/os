@@ -38,14 +38,15 @@
       ExecStart = "/run/current-system/sw/bin/chmod 666 /sys/class/backlight/intel_backlight/brightness";
       User = "root";
     };
-    wantedBy = [ "default.target" ];
+    after = [ "graphical.target" ];
+    wantedBy = [ "multi-user.target" ];
   };
 
   boot.kernelParams = [
     "intel_idle.max_cstate=1"
     "acpi_backlight=vendor"
-    "acpi_osi='!Windows 2013'"
+    "acpi_osi=\"!Windows 2013\""
     "acpi_osi=Linux"
-    "nogpumanager" # do i need this?
+    "nogpumanager"
   ];
 }

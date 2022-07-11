@@ -175,6 +175,7 @@ in {
     rustup
     stack
     tig
+    terraform-full
     vscode
     watchman
   ];
