@@ -2,14 +2,11 @@
 
 let
   mozilla = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
-  rust = (pkgs.rustChannelOf { date = "2022-04-10"; }).rust.override {
+  rust = (pkgs.rustChannelOf { date = "2022-06-30"; channel = "stable"; }).rust.override {
+    targets = [ "wasm32-unknown-unknown" "armv7-unknown-linux-gnueabihf" ];
     extensions = [
       "rust-std"
       "rust-src"
-      "rls-preview"
-      "rustfmt-preview"
-      "rust-analyzer-preview"
-      "clippy-preview"
     ];
   };
 in {
@@ -20,8 +17,8 @@ in {
 
     signal-desktop = super.signal-desktop.overrideAttrs (_: {
       src = builtins.fetchurl {
-        url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_5.39.0_amd64.deb";
-        sha256 = "01wjyhdvi1sibmij1pfcw3hx3l1512b57xpgcv3zkglrqan6hbhg";
+        url = "https://updates.signal.org/desktop/apt/pool/main/s/signal-desktop/signal-desktop_5.42.0_amd64.deb";
+        sha256 = "01cs7h8yqjn0i0b62svncpr8l4mg52z3v8j40wb5y3cswbns6d66";
       };
     });
 
@@ -41,12 +38,12 @@ in {
     });
 
     neovim-unwrapped = super.neovim-unwrapped.overrideAttrs (_: {
-      version = "0.6.1";
+      version = "0.7.0";
       src = pkgs.fetchFromGitHub {
         owner = "neovim";
         repo = "neovim";
-        rev = "v0.6.1";
-        sha256 = "0l738d23hwzbjl2kw7aiycrglmywqpdcnlwlvvmr78nniv9rcw6i";
+        rev = "v0.7.0";
+        sha256 = "03wh090acplj5kgrw87m6dh0rh5f71bg60s75qmqcsfjjwg1m1kr";
       };
 
       buildInputs = super.neovim-unwrapped.buildInputs ++ [ pkgs.tree-sitter ];
@@ -66,10 +63,11 @@ in {
     git
     htop
     killall
-    manpages
+    man-pages
     nix
     playerctl
     usbutils
+    unixtools.xxd
     wpa_supplicant_gui
     xfontsel
     xlsfonts
@@ -136,14 +134,12 @@ in {
     spotify
     st
     surf
-    thunderbird
     (texlive.combine {
       inherit (texlive)
       apa
       biblatex biblatex-apa
       csquotes
       glossaries
-      IEEEtran
       fontaxes
       hyphenat
       latexindent
@@ -159,15 +155,16 @@ in {
 
     # coding packages
     docker
-    docker_compose
+    docker-compose
     flutter
     gcc
     ghc
     go
-    idea.clion
-    idea.datagrip
-    idea.idea-ultimate
+    jetbrains.clion
+    jetbrains.datagrip
+    jetbrains.idea-ultimate
     kubectl
+    terraform-full
     libsodium
     neovim
     nodejs
@@ -182,7 +179,6 @@ in {
     watchman
   ];
 
-  programs.steam.enable = true;
   programs.zsh.enable = true;
   programs.gnupg.agent = {
     enable = true;
